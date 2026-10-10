@@ -47,3 +47,10 @@ Vector 0.59 | BM25 0.615 | Hybrid 0.61 (differences within noise)
 - RAGAS for answer faithfulness
 - Semantic cache (embedding similarity)
 - Wrap in FastAPI + Docker, deploy
+### Classical ML comparison (TF-IDF features, test set, Macro F1)
+LinearSVC 0.716 | RandomForest 0.638 | LogReg ~0.53 | KNN 0.526
+(Exploration run with C=10 and 30k features; the final model's C was chosen by cross-validation.)
+
+### Error analysis
+Confusion matrix shows Customer Service, IT Support and Product Support tickets are most often
+mistaken for Technical Support. IT Support has the lowest F1 (~0.63); Billing the highest (~0.86).
